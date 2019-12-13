@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_cb_topic">
+    <sys_cb_topic action="INSERT_OR_UPDATE">
+        <applicability/>
+        <category display_value="Setup Topics">5628e7f27373230025d032e954f6a7de</category>
+        <connect_queue/>
+        <description>Test</description>
+        <flexible_conversation_switching>false</flexible_conversation_switching>
+        <graph>{
+  "graph_api_version": "1.0.13",
+  "goals": {
+    "f61fe8717a484233b60f0e28170dc053": {
+      "id": "f61fe8717a484233b60f0e28170dc053",
+      "trigger": {
+        "type": "primary"
+      },
+      "name": "primary",
+      "applicability": "",
+      "description": "",
+      "nodes": {
+        "4e85493463ce4456aed0a761742aa117": {
+          "id": "4e85493463ce4456aed0a761742aa117",
+          "stepType": "Start",
+          "name": "Start",
+          "greetingResponse": {
+            "value": "Test Start",
+            "mode": "simple"
+          }
+        },
+        "f1a2e5d830614f068a9f9fd7d36e5ccb": {
+          "id": "f1a2e5d830614f068a9f9fd7d36e5ccb",
+          "stepType": "TerminateGoal",
+          "name": "End",
+          "confirmationMessage": {
+            "mode": "simple",
+            "value": ""
+          }
+        },
+        "2a8cc72298bb45c483857ff053cf888e": {
+          "id": "2a8cc72298bb45c483857ff053cf888e",
+          "stepType": "Prompt",
+          "name": "1. Does it Work?",
+          "prompt": {
+            "value": "Works?",
+            "mode": "simple"
+          },
+          "confirmMessage": {
+            "value": "",
+            "mode": "simple"
+          },
+          "acknowledgeMsg": {
+            "value": "",
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "optional": false,
+          "defaultValue": {
+            "value": "",
+            "mode": "simple"
+          },
+          "withNluUserInput": false,
+          "skipIfFulfilled": false,
+          "entity": "",
+          "variableId": "a95265359de045a9912e51512f915c50"
+        },
+        "f928a1732a574a089bb7adb19d7d815d": {
+          "id": "f928a1732a574a089bb7adb19d7d815d",
+          "stepType": "Decision",
+          "name": "Decision"
+        },
+        "b8e84bc0de6846a7884208a81a466491": {
+          "id": "b8e84bc0de6846a7884208a81a466491",
+          "stepType": "ImplicitEnd"
+        },
+        "ba4ec6fb67ab4cccbe4fefe3c845538a": {
+          "id": "ba4ec6fb67ab4cccbe4fefe3c845538a",
+          "stepType": "TextOutput",
+          "name": "Y",
+          "value": {
+            "value": "Y",
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        },
+        "157cfec5517c4349963e1e78e77ca678": {
+          "id": "157cfec5517c4349963e1e78e77ca678",
+          "stepType": "TextOutput",
+          "name": "N",
+          "value": {
+            "value": "N",
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        }
+      },
+      "edges": [
+        {
+          "id": "4f1079f74ef544f8bff247ba0bc41e4f",
+          "edgeType": "Edge",
+          "source": "4e85493463ce4456aed0a761742aa117",
+          "target": "2a8cc72298bb45c483857ff053cf888e",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "04aa22111eeb43d48f39e89da9561e52",
+          "edgeType": "Edge",
+          "source": "2a8cc72298bb45c483857ff053cf888e",
+          "target": "f928a1732a574a089bb7adb19d7d815d",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "a939a63ea77c453f9d2cfa61e5b288d8",
+          "edgeType": "Branch",
+          "source": "f928a1732a574a089bb7adb19d7d815d",
+          "target": "ba4ec6fb67ab4cccbe4fefe3c845538a",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "value": "1_does_it_work_=true",
+            "mode": "query"
+          },
+          "label": "Y"
+        },
+        {
+          "id": "1477b2cffdc746999d124075d9ae4c3d",
+          "edgeType": "Edge",
+          "source": "ba4ec6fb67ab4cccbe4fefe3c845538a",
+          "target": "f1a2e5d830614f068a9f9fd7d36e5ccb",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "b8bcbc41ae8741669189d0f2085b9a3a",
+          "edgeType": "Branch",
+          "source": "f928a1732a574a089bb7adb19d7d815d",
+          "target": "157cfec5517c4349963e1e78e77ca678",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "value": "1_does_it_work_=",
+            "mode": "query"
+          },
+          "label": "N"
+        },
+        {
+          "id": "c873195171ae484e9798409585025c67",
+          "edgeType": "Edge",
+          "source": "157cfec5517c4349963e1e78e77ca678",
+          "target": "b8e84bc0de6846a7884208a81a466491",
+          "sourcePort": "",
+          "targetPort": ""
+        }
+      ]
+    }
+  },
+  "variables": {
+    "a95265359de045a9912e51512f915c50": {
+      "id": "a95265359de045a9912e51512f915c50",
+      "name": "1_does_it_work_",
+      "label": "1. Does It Work?",
+      "varType": "boolean",
+      "category": "vaInputs"
+    }
+  }
+}</graph>
+        <key_phrases>Test VA Topic Failure</key_phrases>
+        <live_agent>false</live_agent>
+        <name>Test VA Topic Failure</name>
+        <nlu_intent/>
+        <nlu_model/>
+        <nlu_provider/>
+        <roles/>
+        <sys_class_name>sys_cb_topic</sys_class_name>
+        <sys_created_by>chgrum</sys_created_by>
+        <sys_created_on>2019-12-12 20:07:01</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_domain>global</sys_domain>
+        <sys_id>de4634ffdba980507409f337689619fd</sys_id>
+        <sys_mod_count>9</sys_mod_count>
+        <sys_name>Test VA Topic Failure</sys_name>
+        <sys_package display_value="VA Test" source="x_micr5_va_test">fa06f07fdba980507409f337689619e4</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="VA Test">fa06f07fdba980507409f337689619e4</sys_scope>
+        <sys_update_name>sys_cb_topic_de4634ffdba980507409f337689619fd</sys_update_name>
+        <sys_updated_by>chgrum</sys_updated_by>
+        <sys_updated_on>2019-12-13 18:08:21</sys_updated_on>
+        <variables/>
+    </sys_cb_topic>
+    <sys_variable_value action="delete_multiple" query="document_key=de4634ffdba980507409f337689619fd"/>
+</record_update>
